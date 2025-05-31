@@ -117,7 +117,15 @@ exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
   email: 'email',
   name: 'name',
-  Senha: 'Senha'
+  senha: 'senha',
+  cpf: 'cpf'
+};
+
+exports.Prisma.ParceriaScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome',
+  descricao: 'descricao',
+  criadaEm: 'criadaEm'
 };
 
 exports.Prisma.SortOrder = {
@@ -132,7 +140,8 @@ exports.Prisma.QueryMode = {
 
 
 exports.Prisma.ModelName = {
-  User: 'User'
+  User: 'User',
+  Parceria: 'Parceria'
 };
 
 /**

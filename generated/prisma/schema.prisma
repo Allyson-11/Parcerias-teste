@@ -19,7 +19,8 @@ model User {
   email   String
   name    String
   address Address?
-  Senha   String
+  senha   String
+  cpf     String
 }
 
 type Address {
@@ -27,4 +28,11 @@ type Address {
   cidade String
   estado String
   cep    String
+}
+
+model Parceria {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  nome      String
+  descricao String?
+  criadaEm  DateTime @default(now())
 }
