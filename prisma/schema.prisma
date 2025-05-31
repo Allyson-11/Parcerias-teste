@@ -20,7 +20,8 @@ model User {
   email   String   
   name    String
   address Address?
-  Senha   String
+  senha   String
+  cpf   String
 }
 
 type Address {

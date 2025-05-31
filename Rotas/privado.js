@@ -1,13 +1,25 @@
-import express from 'express'  
+import express from 'express'
+
+import { PrismaClient } from '../generated/prisma/index.js';
 
 const rota = express.Router()
 
-rota.post('/cadastro-usuario', (req, res) => {
-    const user = req.body
-
-    res.status(201).json(user)
+const prisma = new PrismaClient()
 
 
+rota.get('/listar-usuarios', async (req, res) => {
+
+    try {
+
+        const users = await prisma.user.findMany()
+
+        const usersSemSenha = users.map(({ senha, ...rest }) => rest)
+
+        res.status(200).json({ message: 'Usuários listados', users: usersSemSenha })
+
+    } catch (err) {
+        res.status(500).json({ message: 'Falha no servidor' })
+    }
 })
 
 export default rota
